@@ -1,18 +1,42 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <el-row>
+      <el-col :span="6">
+        <market></market>
+      </el-col>
+      <el-col :span="12">
+        <stage></stage>
+      </el-col>
+      <el-col :span="6">
+        <config></config>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import { Col, Row } from "element-ui";
+import Market from "./Market.vue";
+import Stage from "./Stage.vue";
+import Config from "./Config.vue";
 
 @Component({
-  components: {
-    HelloWorld,
-  },
+  components: { Col, Row, Market, Stage, Config },
 })
 export default class Home extends Vue {}
 </script>
+
+<style lang="less" scoped>
+.home {
+  .el-col {
+    height: 100vh;
+  }
+  .el-col:first-child {
+    border-right: 1px solid red;
+  }
+  .el-col:last-child {
+    border-left: 1px solid black;
+  }
+}
+</style>
